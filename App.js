@@ -6,6 +6,7 @@ import { Icon } from 'react-native-elements/dist/icons/Icon';
 import { Image } from 'react-native';
 import facebook from './assets/circleFb.png';
 import google from './assets/google.png';
+import logo from './assets/usr.png';
 
 export default function App() {
   return (
@@ -22,10 +23,14 @@ export default function App() {
       <View style = {styles.allContainer}>
         <View style = {styles.authenticationContainer}>
           <View style = {styles.logo}>
-            <Icon
+            {/* <Icon
               name = 'user-circle'
               type='font-awesome'
               size={96}
+            /> */}
+            <Image
+              source={logo}
+              style = {{width: 120,height: 120,}}
             />
           </View>
             <View style = {styles.inputsContainer}>
@@ -144,7 +149,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
   },
   logo: {
-    marginTop: 55
+    marginTop: 55,
+    justifyContent: 'center',alignItems: 'center'
   },
   inputsContainer: {
     marginTop: 24,
