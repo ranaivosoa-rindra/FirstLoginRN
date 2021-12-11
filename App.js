@@ -125,15 +125,15 @@ const styles = StyleSheet.create({
     borderRadius: 1000,
     height: 1058,
     right: 100,
-    top: -400,
+    top: -360,
     opacity: 1
   },
   bigCircle: {
-    width: 1246,
-    height: 1507,
+    width: 1250,
+    height: 1520,
     borderRadius: 1000,
-    top: -1850,
-    right: 120,
+    top: -1840,
+    right: 133,
     opacity: 0.5
   },
   allContainer: {
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
   },
   logo: {
-    marginTop: 55,
+    marginTop: 60,
     justifyContent: 'center',alignItems: 'center'
   },
   inputsContainer: {
