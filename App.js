@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View ,Keyboard} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Icon } from 'react-native-elements/dist/icons/Icon';
 import { Image } from 'react-native';
@@ -9,6 +9,11 @@ import google from './assets/google.png';
 
 export default function App() {
   return (
+    <TouchableWithoutFeedback
+    onPress={() => {
+      Keyboard.dismiss();
+    }}
+    >
     <View style={styles.container}>
       <LinearGradient colors={['#EE3232','#7A69AB']} style= {styles.smallCircle}>
       </LinearGradient>
@@ -23,40 +28,40 @@ export default function App() {
               size={96}
             />
           </View>
-          <View style = {styles.inputsContainer}>
-            <View style = {styles.singleInput}>
-              <Text style = {styles.text}>First Name :</Text>
-              <TextInput
-                style = {styles.insideInput}
-              />
-            </View>
-              <View style = {styles.whiteLine}></View>
-            <View style = {styles.singleInput}>
-              <Text style = {styles.text}>Last Name :</Text>
+            <View style = {styles.inputsContainer}>
+              <View style = {styles.singleInput}>
+                <Text style = {styles.text}>First Name :</Text>
                 <TextInput
                   style = {styles.insideInput}
                 />
-            </View>
-              <View style = {styles.whiteLine}></View>
-            <View style = {styles.singleInput}>
-              <Text style = {styles.text}>Email Address :</Text>
-                <TextInput
-                  style = {styles.insideInput}
-                  textContentType='emailAddress'
-                  keyboardType='email-address'
-                  autoCapitalize={'none'}
-                />
-            </View>
-              <View style = {styles.whiteLine}></View>
-            <View style = {styles.singleInput}>
-              <Text style = {styles.text}>Password :</Text>
+              </View>
+                <View style = {styles.whiteLine}></View>
+              <View style = {styles.singleInput}>
+                <Text style = {styles.text}>Last Name :</Text>
                   <TextInput
                     style = {styles.insideInput}
-                    secureTextEntry={true}
                   />
+              </View>
+                <View style = {styles.whiteLine}></View>
+              <View style = {styles.singleInput}>
+                <Text style = {styles.text}>Email Address :</Text>
+                  <TextInput
+                    style = {styles.insideInput}
+                    textContentType='emailAddress'
+                    keyboardType='email-address'
+                    autoCapitalize={'none'}
+                  />
+              </View>
+                <View style = {styles.whiteLine}></View>
+              <View style = {styles.singleInput}>
+                <Text style = {styles.text}>Password :</Text>
+                    <TextInput
+                      style = {styles.insideInput}
+                      secureTextEntry={true}
+                    />
+              </View>
+                <View style = {styles.whiteLine}></View>
             </View>
-              <View style = {styles.whiteLine}></View>
-          </View>
           <View style = {styles.signUp}>
             <TouchableOpacity
               style = {styles.button}
@@ -71,7 +76,7 @@ export default function App() {
               </Text>
               <View style = {styles.twoLogos}>
                 <TouchableOpacity
-                  onPress={() => console.log("facebook")}
+                  onPress={() => console.log("Signing up with facebook")}
                 >
                   <Image
                     source={facebook}
@@ -80,7 +85,7 @@ export default function App() {
                 </TouchableOpacity>
                 <View style = {{marginHorizontal: 3}}></View>
                 <TouchableOpacity
-                  onPress={() => console.log("google")}
+                  onPress={() => console.log("Signing up with google")}
                 >
                   <Image
                     source={google}
@@ -92,9 +97,17 @@ export default function App() {
           </View>
         </View>
       </View>  
-      <View style = {styles.plusCircle}></View>  
+      {/* <View style = {styles.plusCircle}></View>   */}
+        <LinearGradient
+          colors={['#CB3F5B', '#5448C2']}
+          style = {styles.plusCircle}
+        >
+          <View style = {styles.horizontalLine}></View>
+          <View style = {styles.verticalLine}></View>
+        </LinearGradient>
       <StatusBar style="auto" />
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -131,7 +144,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
   },
   logo: {
-    marginTop: 80
+    marginTop: 55
   },
   inputsContainer: {
     marginTop: 24,
@@ -201,5 +214,29 @@ const styles = StyleSheet.create({
   googleLogo: {
     width: 25,
     height: 25
+  },
+  plusCircle: {
+    position: 'absolute',
+    left: 33,
+    top: 650,
+    borderRadius: 1000,
+    // backgroundColor: "#c0c",
+    width: 87,
+    height: 85,
+    // flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  horizontalLine: {
+    width: 50,
+    height: 1,
+    backgroundColor: "#fff",
+    position: 'absolute',
+    marginTop: 10
+  },
+  verticalLine: {
+    width: 1,
+    height: 50,
+    backgroundColor: '#fff',
   }
 });
